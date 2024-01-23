@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_LayoutCart.cshtml";
+}
+<main>
+    <h1 class="mb-3" style="font-family: 'Oswald-SemiBold'; font-size: 32px; line-height: 38px; ">GIỎ HÀNG CỦA TÔI</h1>
+    <div class="emty-cart position-relative d-flex align-items-center justify-content-start flex-wrap" style="padding: 45px 55px; background-color: #F8F7F5">
+        <div class="content-emty-cart position-absolute">
+            <h2 style="font-family: 'Oswald-SemiBold'; font-size: 44px; letter-spacing: 2.5px; line-height: 58px;">GIỎ HÀNG CỦA BẠN ĐANG TRỐNG. HÃY ĐẶT MÓN NGAY!</h2>
+            <button class="btn_dathang">Bắt đầu đặt hàng</button>
+        </div>
+    </div>
+</main>
+@section css{
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Cart.css">
+}

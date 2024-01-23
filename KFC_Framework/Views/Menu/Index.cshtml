@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewData["Title"] = "Menu";
+
+}
+<main>
+    @Html.Action("_PartialHeaderSub", "Parital")
+
+    <nav id="navbar-tab-menu" class="navbar bg-body-tertiary mb-4 justify-content-sm-around border-bottom">
+        <ul class="nav nav-pills  nav-tab-menu-list">
+            <li class="nav-item nav-tab-menu-items">
+                <a class="nav-link nav-tab-menu-link activer" href="#hot-deal">ƯU ĐÃI</a>
+            </li>
+            <li class="nav-item nav-tab-menu-items">
+                <a class="nav-link nav-tab-menu-link" href="#new-product">MÓN MỚI</a>
+            </li>
+            <li class="nav-item nav-tab-menu-items">
+                <a class="nav-link nav-tab-menu-link" href="#for-one">COMBO 1 NGƯỜI</a>
+            </li>
+            <li class="nav-item nav-tab-menu-items">
+                <a class="nav-link nav-tab-menu-link" href="#sharing">COMBO NHÓM</a>
+            </li>
+            <li class="nav-item nav-tab-menu-items">
+                <a class="nav-link nav-tab-menu-link" href="#fried-rosted-chicken">GÀ RÁN - GÀ QUAY</a>
+            </li>
+            <li class="nav-item nav-tab-menu-items">
+                <a class="nav-link nav-tab-menu-link" href="#burger---rice">BURGER - CƠM - MÌ Ý</a>
+            </li>
+            <li class="nav-item nav-tab-menu-items">
+                <a class="nav-link nav-tab-menu-link" href="#snack">THỨC ĂN NHẸ</a>
+            </li>
+            <li class="nav-item nav-tab-menu-items">
+                <a class="nav-link nav-tab-menu-link" href="#dessert-&-drink">THỨC UỐNG & VÀ TRÁNG MIỆNG</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div data-bs-spy="scroll" data-bs-target="#navbar-tab-menu" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2 container content-tab-menu" tabindex="0">
+        <h4 id="hot-deal">ƯU ĐÃI</h4>
+        @for (var i = 0; i < 5; i++)
+        {
+            <p>Ưu đãi</p>
+        }
+        <h4 id="new-product">MÓN MỚI</h4>
+        @for (var i = 0; i < 5; i++)
+        {
+            <p>Món mới</p>
+        }
+        <h4 id="for-one">COMBO 1 NGƯỜI</h4>
+        @for (var i = 0; i < 5; i++)
+        {
+            <p>COMBO 1 NGƯỜI</p>
+        }
+        <h4 id="sharing">COMBO NHÓM</h4>
+        @for (var i = 0; i < 5; i++)
+        {
+            <p>COMBO NHÓM</p>
+        }
+        <h4 id="fried-rosted-chicken">GÀ RÁN - GÀ QUAY</h4>
+        @for (var i = 0; i < 5; i++)
+        {
+            <p>GÀ RÁN - GÀ QUAY</p>
+        }
+        <h4 id="burger---rice">BURGER - CƠM 0 MÌ Ý</h4>
+        @for (var i = 0; i < 5; i++)
+        {
+            <p>BURGER - CƠM 0 MÌ Ý</p>
+        }
+        <h4 id="snack">THỨC ĂN NHẸ</h4>
+        @for (var i = 0; i < 5; i++)
+        {
+            <p>THỨC ĂN NHẸ</p>
+        }
+        <h4 id="dessert-&-drink">THỨC UỐNG & TRÁNG MIỆNG</h4>
+        @for (var i = 0; i < 5; i++)
+        {
+            <p>THỨC UỐNG & TRÁNG MIỆNG</p>
+        }
+
+    </div>
+</main>
+@section css{
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/partialStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Menu.css">
+}
+
+@Scripts.Render("~/bundles/jquery")
+<script>
+    const tab = $('#navbar-tab-menu')
+    window.onscroll = function (e) {
+        let scrollValue = document.documentElement.scrollTop
+        if (scrollValue >= 0 && scrollValue <= 66) {
+            tab.css({ 'top': `calc(168px - ${scrollValue}px)` })
+        }
+        else if (scrollValue > 66) {
+            tab.css({ 'top': `103px` })
+
+        }
+    }
+    // Active Tab Menu
+    $('.nav-tab-menu-link').on('click', function () {
+        $('.nav-tab-menu-link').removeClass('activer');
+        $(this).addClass('activer');
+    });
+
+    $(document).ready(function () {
+        $('body').scrollspy({ target: '#navbar-tab-menu' });
+
+        // Smooth scrolling
+        $("#navbar-tab-menu a").on('click', function (event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function () {
+                    window.location.hash = hash;
+                });
+            }
+        });
+    });
+</script>

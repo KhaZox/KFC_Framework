@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container text-center wrapper_login">
+    <div class="row">
+        <div class="col-6 login_img" style="background-color: #e21e2d; padding: 0">
+            <img class="img_login_shop" src="https://static.kfcvietnam.com.vn/images/web/signin/lg/signin.jpg?v=XgqM7g" />
+        </div>
+        <div class="col-6 wrapper-control-login">
+            <form class="text-start form-login">
+                <h2 class="login_title">Đăng nhập</h2>
+                <div class="inputbox mt-4">
+                    <input type="email" required>
+                    <label class="lbl-email" for="">Địa chỉ Email của bạn</label>
+                    <div class=" form-text form-text-email form-text-custom">Hãy điền địa chỉ email của bạn.</div>
+                </div>
+
+                <div class="inputbox mt-4">
+                    <input type="password" required>
+                    <label class="lbl-password" for="">Mật khẩu</label>
+                    <div class=" form-text form-text-password form-text-custom">Vui lòng nhập mật khẩu của bạn.</div>
+                </div>
+
+                <div class="mb-3 text-end">
+                    <a href="/">Bạn quên mật khẩu</a>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-custom btn-success">Đăng nhập</button>
+                </div>
+                <div class="mb-3 text-start">
+                    <h5 style="font-family: 'Oswald-SemiBold'">Hoặc tiếp tục với</h5>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-custom btn-primary">
+                        <ion-icon name="logo-facebook"></ion-icon>
+                        Đăng nhập bằng facebook
+                    </button>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-dark btn-custom ">
+                        <ion-icon name="logo-apple"></ion-icon>
+                        Đăng nhập bằng apple
+                    </button>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-custom btn-danger">
+                        <ion-icon name="logo-google"></ion-icon>
+                        Đăng nhập bằng google
+                    </button>
+                </div>
+                <div class="mb-3 text-center">
+                    <span>Bạn chưa có tài khoản? <strong class="text-decoration-underline"><a href="/">Đăng ký</a></strong></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section css{
+    <link rel="stylesheet" href="~/Content/Site.css"/>
+    <link rel="stylesheet" href="~/Content/Account.css"/>
+}

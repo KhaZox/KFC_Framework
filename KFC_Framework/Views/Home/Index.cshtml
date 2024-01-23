@@ -1,0 +1,180 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<main>
+    @*Phần HeaderSub*@
+    @Html.Action("_PartialHeaderSub", "Parital")
+
+    @*Phần Slider*@
+    @Html.Action("_PartialSlider", "Parital")
+
+    @* Phần content *@
+    <div class="container container-custom position-relative top-0 mb-3 ">
+        @* Phần menu *@
+        <h2 class="content_menu_title">
+            <span class="menu-title">DANH MỤC MÓN ĂN</span>
+        </h2>
+        <div class="container-fluid">
+            <div class="row menu-list">
+                <a href="/" class="col-3">
+                    <div class="card card-custom" style="width: 266px">
+                        <div class="wrapper-img">
+                            <img src="https://static.kfcvietnam.com.vn/images/category/lg/KHUYEN%20MAI.jpg?v=LE5pPL" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-text">Ưu Đãi &#62;</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="/" class="col-3">
+                    <div class="card card-custom" style="width: 266px">
+                        <div class="wrapper-img">
+                            <img src="https://static.kfcvietnam.com.vn/images/category/lg/MON%20MOI.jpg?v=LE5pPL" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-text">Món Mới</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="/" class="col-3">
+                    <div class="card card-custom" style="width: 266px">
+                        <div class="wrapper-img">
+                            <img src="https://static.kfcvietnam.com.vn/images/category/lg/COMBO%201%20NGUOI.jpg?v=LZYn53" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-text">Combo 1 Người &#62;</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="/" class="col-3">
+                    <div class="card card-custom" style="width: 266px">
+                        <div class="wrapper-img">
+                            <img src="https://static.kfcvietnam.com.vn/images/category/lg/COMBO%20NHOM.jpg?v=LE5pPL" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-text">Combo Nhóm &#62;</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="row mt-4 menu-list">
+                <a href="/" class="col-3">
+                    <div class="card card-custom" style="width: 266px">
+                        <div class="wrapper-img">
+                            <img src="https://static.kfcvietnam.com.vn/images/category/lg/GA.jpg?v=LE5pPL" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-text">Gà Rán - Gà Quay &#62;</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="/" class="col-3">
+                    <div class="card card-custom" style="width: 266px">
+                        <div class="wrapper-img">
+                            <img src="https://static.kfcvietnam.com.vn/images/category/lg/COM.jpg?v=LE5pPL" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-text">Burger - Cơm - Mì Ý &#62;</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="/" class="col-3">
+                    <div class="card card-custom" style="width: 266px">
+                        <div class="wrapper-img">
+                            <img src="https://static.kfcvietnam.com.vn/images/category/lg/MON%20AN%20NHE.jpg?v=LE5pPL" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-text">Thức Ăn Nhẹ &#62;</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="/" class="col-3">
+                    <div class="card card-custom" style="width: 266px">
+                        <div class="wrapper-img">
+                            <img src="https://static.kfcvietnam.com.vn/images/category/lg/TRANG%20MIENG.jpg?v=LE5pPL" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-text">Thức Uống & Tráng Miệng &#62;</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        @* Phần Menu Like *@
+        <h2 class="content_menu_title">
+            <span class="icon-menu-like"></span>
+            <span class="menu-title">CÓ THỂ BẠN SẼ THÍCH MÓN NÀY</span>
+        </h2>
+        <div class="container text-center">
+            <div class="row menu-like">
+                <div class="col-4">
+                    <div class="card card-menu-like" style="width: 334px">
+                        <div class="wrapper-img">
+                            <img src="https://static.kfcvietnam.com.vn/images/items/lg/D6.jpg?v=LE5pPL" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <div class="wrapper-title-card d-flex justify-content-between align-items-center">
+                                <h4>Combo Nhóm 2</h4>
+                                <h4>119.000 đ</h4>
+                            </div>
+                            <p class="card-text card-text-menu-like">4 Miếng Gà  + 1 Khoai tây chiên lớn / 2 Thanh Bí Phô-mai + 2 Pepsi Lon</p>
+                            <a href="#" class="btn btn-primary btn-custom">Thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card card-menu-like" style="width: 334px">
+                        <div class="wrapper-img">
+                            <img src="https://static.kfcvietnam.com.vn/images/items/lg/D6.jpg?v=LE5pPL" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <div class="wrapper-title-card d-flex justify-content-between align-items-center">
+                                <h4>Combo Nhóm 2</h4>
+                                <h4>119.000 đ</h4>
+                            </div>
+                            <p class="card-text card-text-menu-like">4 Miếng Gà  + 1 Khoai tây chiên lớn / 2 Thanh Bí Phô-mai + 2 Pepsi Lon</p>
+                            <a href="#" class="btn btn-primary btn-custom">Thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card card-menu-like" style="width: 334px">
+                        <div class="wrapper-img">
+                            <img src="https://static.kfcvietnam.com.vn/images/items/lg/D6.jpg?v=LE5pPL" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <div class="wrapper-title-card d-flex justify-content-between align-items-center">
+                                <h4>Combo Nhóm 2</h4>
+                                <h4>119.000 đ</h4>
+                            </div>
+                            <p class="card-text card-text-menu-like">4 Miếng Gà  + 1 Khoai tây chiên lớn / 2 Thanh Bí Phô-mai + 2 Pepsi Lon</p>
+                            <a href="#" class="btn btn-primary btn-custom">Thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card card-menu-like" style="width: 334px">
+                        <div class="wrapper-img">
+                            <img src="https://static.kfcvietnam.com.vn/images/items/lg/D6.jpg?v=LE5pPL" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <div class="wrapper-title-card d-flex justify-content-between align-items-center">
+                                <h4>Combo Nhóm 2</h4>
+                                <h4>119.000 đ</h4>
+                            </div>
+                            <p class="card-text card-text-menu-like">4 Miếng Gà  + 1 Khoai tây chiên lớn / 2 Thanh Bí Phô-mai + 2 Pepsi Lon</p>
+                            <a href="#" class="btn btn-primary btn-custom">Thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Action("_PartialBanner", "Parital")
+</main>
+@section css{
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/partialStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Home.css">
+}

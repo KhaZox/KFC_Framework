@@ -5,7 +5,6 @@
 }
 <main>
     @Html.Action("_PartialHeaderSub", "Parital")
-
     <nav id="navbar-tab-menu" class="navbar bg-body-tertiary mb-4 justify-content-sm-around border-bottom">
         <ul class="nav nav-pills  nav-tab-menu-list">
             <li class="nav-item nav-tab-menu-items">
@@ -30,17 +29,39 @@
                 <a class="nav-link nav-tab-menu-link" href="#snack">THỨC ĂN NHẸ</a>
             </li>
             <li class="nav-item nav-tab-menu-items">
-                <a class="nav-link nav-tab-menu-link" href="#dessert-&-drink">THỨC UỐNG & VÀ TRÁNG MIỆNG</a>
+                <a class="nav-link nav-tab-menu-link" href="#dessert-and-drink">THỨC UỐNG & VÀ TRÁNG MIỆNG</a>
             </li>
         </ul>
     </nav>
 
-    <div data-bs-spy="scroll" data-bs-target="#navbar-tab-menu" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2 container content-tab-menu" tabindex="0">
+    <div data-bs-spy="scroll" data-bs-target="#navbar-tab-menu" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2 container-xl content-tab-menu" tabindex="0">
         <h4 id="hot-deal">ƯU ĐÃI</h4>
-        @for (var i = 0; i < 5; i++)
-        {
-            <p>Ưu đãi</p>
-        }
+        <div class="row gx-2">
+            @for (var i = 0; i < 8; i++)
+            {
+                <div class="card card-menu col-3 px-1 mx-1 rounded-0 mt-2 mb-2" style="width: 270px;" data-bs-card="@i">
+                    <div style="margin: 8px 4px 0; overflow: hidden;">
+                        <img style="" src="https://static.kfcvietnam.com.vn/images/items/lg/Combo-86-tet.jpg?v=4aZoGg" class="card-img-top img-menu-item rounded-0" alt="...">
+                    </div>
+                    <div class="desc hide">
+                        <p>2 Miếng Gà Rán + 1 Khoai Tây Múi Cau (vừa) + 1 lon Pepsi</p>
+                    </div>
+                    <span class="close-detail-menu">&#161;</span>
+                    <div class="card-body card-body-menu">
+                        <div class="d-flex justify-content-between mb-2" style="font-family: 'Roboto-Bold'; line-height: 22px; font-size: 18px; ">
+                            <h5 class="card-title">Combo Sung Túc</h5>
+                            <div class="price d-flex flex-column align-items-end ms-2">
+                                <span>86.000đ</span>
+                                <span class="text-decoration-line-through text-secondary">108.000đ</span>
+                            </div>
+
+                        </div>
+                        <p style=" font-size: 14px; color: #202124;" class="card-text mb-3">2 Miếng Gà Rán + 1 Khoai Tây Múi Cau (vừa) + 1 lon Pepsi</p>
+                        <a href="#" class="btn btn_dathang btn-dathang-menu">Thêm</a>
+                    </div>
+                </div>
+            }
+        </div>
         <h4 id="new-product">MÓN MỚI</h4>
         @for (var i = 0; i < 5; i++)
         {
@@ -71,7 +92,7 @@
         {
             <p>THỨC ĂN NHẸ</p>
         }
-        <h4 id="dessert-&-drink">THỨC UỐNG & TRÁNG MIỆNG</h4>
+        <h4 id="dessert-and-drink">THỨC UỐNG & TRÁNG MIỆNG</h4>
         @for (var i = 0; i < 5; i++)
         {
             <p>THỨC UỐNG & TRÁNG MIỆNG</p>
@@ -84,40 +105,26 @@
     <link rel="stylesheet" type="text/css" href="~/Content/partialStyle.css">
     <link rel="stylesheet" type="text/css" href="~/Content/Menu.css">
 }
+@section scripts{
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/Menu.js"></script>
+    <script>
+        $('.close-detail-menu').click(function () {
+            var cardIndex = $(this).index('.close-detail-menu');
 
-@Scripts.Render("~/bundles/jquery")
-<script>
-    const tab = $('#navbar-tab-menu')
-    window.onscroll = function (e) {
-        let scrollValue = document.documentElement.scrollTop
-        if (scrollValue >= 0 && scrollValue <= 66) {
-            tab.css({ 'top': `calc(168px - ${scrollValue}px)` })
-        }
-        else if (scrollValue > 66) {
-            tab.css({ 'top': `103px` })
-
-        }
-    }
-    // Active Tab Menu
-    $('.nav-tab-menu-link').on('click', function () {
-        $('.nav-tab-menu-link').removeClass('activer');
-        $(this).addClass('activer');
-    });
-
-    $(document).ready(function () {
-        $('body').scrollspy({ target: '#navbar-tab-menu' });
-
-        // Smooth scrolling
-        $("#navbar-tab-menu a").on('click', function (event) {
-            if (this.hash !== "") {
-                event.preventDefault();
-                var hash = this.hash;
-                $('html, body').animate({
-                    scrollTop: $(hash).offset().top
-                }, 800, function () {
-                    window.location.hash = hash;
-                });
+            var currentState = $(this).data('toggle-state') || 'closed';
+            if (currentState === 'closed') {
+                $(this).html('&#215;');
+                currentState = 'open';
+            } else {
+                $(this).html('&#161;');
+                currentState = 'closed';
             }
+            $(this).data('toggle-state', currentState);
+
+            var description = $('.desc').eq(cardIndex);
+            description.toggleClass('hide');
+            dđ
         });
-    });
-</script>
+    </script>
+}

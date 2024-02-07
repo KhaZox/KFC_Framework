@@ -10,20 +10,19 @@
             <img class="img_login_shop" src="https://static.kfcvietnam.com.vn/images/web/signin/lg/signin.jpg?v=XgqM7g" />
         </div>
         <div class="col-6 wrapper-control-login">
-            <form class="text-start form-login">
+            <form class="text-start form-login form">
                 <h2 class="login_title">Đăng nhập</h2>
-                <div class="inputbox mt-4">
-                    <input type="email" required>
-                    <label class="lbl-email" for="">Địa chỉ Email của bạn</label>
-                    <div class=" form-text form-text-email form-text-custom">Hãy điền địa chỉ email của bạn.</div>
+                <div class="Body_form mt-4">
+                    <input class="form_input" id="email" name="email" rules="required|email" type="email" required>
+                    <label for="email" class="form-label">Địa chỉ Email của bạn</label>
+                    <div class="form-message"></div>
                 </div>
-
-                <div class="inputbox mt-4">
-                    <input type="password" required>
-                    <label class="lbl-password" for="">Mật khẩu</label>
-                    <div class=" form-text form-text-password form-text-custom">Vui lòng nhập mật khẩu của bạn.</div>
+                <div class="Body_form mt-4">
+                    <input class="form_input input-password" id="password" name="password" rules="required|min:6" type="password" required>
+                    <label for="password" class="form-label">Mật khẩu</label>
+                    <div class="form-message"></div>
+                    <span class="icon-password"><ion-icon name="eye"></ion-icon></span>
                 </div>
-
                 <div class="mb-3 text-end">
                     <a href="/">Bạn quên mật khẩu</a>
                 </div>
@@ -52,13 +51,23 @@
                     </button>
                 </div>
                 <div class="mb-3 text-center">
-                    <span>Bạn chưa có tài khoản? <strong class="text-decoration-underline"><a href="/">Đăng ký</a></strong></span>
+                    <span>Bạn chưa có tài khoản? <strong class="text-decoration-underline"><a href="/Account/register">Đăng ký</a></strong></span>
                 </div>
             </form>
         </div>
     </div>
 </div>
+@section scripts{
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/Account.js"></script>
+    <script>
+        var form = new Validator('.form')
+        form.onSubmit = function (formData) {
+            console.log(formData)
+        }
+    </script>
+}
 @section css{
-    <link rel="stylesheet" href="~/Content/Site.css"/>
-    <link rel="stylesheet" href="~/Content/Account.css"/>
+    <link rel="stylesheet" href="~/Content/Site.css" />
+    <link rel="stylesheet" href="~/Content/Account.css" />
 }

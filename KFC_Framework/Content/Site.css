@@ -1,12 +1,14 @@
 ﻿
 @font-face {
     font-family: 'Roboto-Bold';
-    src: url('https://static.kfcvietnam.com.vn/fonts/Roboto-Bold.ttf');
+    /*src: url('https://static.kfcvietnam.com.vn/fonts/Roboto-Bold.ttf');*/
+    src: url('/Content/fonts/Roboto-Bold.woff')
 }
 
 @font-face {
     font-family: 'Oswald-SemiBold';
-    src: url('https://static.kfcvietnam.com.vn/fonts/Oswald-SemiBold.woff');
+    /*src: url('https://static.kfcvietnam.com.vn/fonts/Oswald-SemiBold.woff');*/
+    src: url('/Content/fonts/Oswald-SemiBold.woff')
 }
 /*.body-content {
     margin-top: 15px;
@@ -315,8 +317,12 @@ header .header-right {
 }
 
 .btn_dathang:hover {
-    background-color: crimson;
-    box-shadow: 0 4px 2px 0px rgba(0,0,0,0.25);
+    color: #fff;
+    background-color: #e4002b;
+    /*box-shadow: 0 4px 2px 0px rgba(0,0,0,0.25);*/
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(45,46,46,0.2);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(45,46,46,0.2);
+    box-shadow: 0px 0px 10px 2px rgba(45,46,46,0.2);
 }
 .btn_dathang--header {
     opacity: 0;

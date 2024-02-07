@@ -22,7 +22,7 @@ namespace KFC_Framework.Controllers
             //}
         }
         // GET: Account/Create
-        public ActionResult Create()
+        public ActionResult register()
         {
             return View();
         }

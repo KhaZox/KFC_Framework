@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link rel="stylesheet" href="~/Content/Site.css" />
-    <script defer src="~/Scripts/Site.js"></script>
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/css")
     @RenderSection("css", false)
@@ -34,7 +33,7 @@
         </div>
         @* Header-right: user-cart *@
         <div class="header-right">
-            <button class="btn_dathang btn_dathang--header" id="btn_dathang_1">Bắt đầu đặt hàng</button>
+            <a href="#" class="btn disabled text-light btn_dathang btn_dathang--header " id="btn_dathang_1">Bắt đầu đặt hàng</a>
             <ul class="header-right-list">
                 <li class="header-right-items">
                     <a href="/Account">
@@ -111,8 +110,9 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script src="~/Scripts/Site.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    
+
 </body>
 </html>

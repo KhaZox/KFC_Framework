@@ -37,5 +37,17 @@ namespace KFC_Framework.Controllers
         {
             return PartialView();
         }
+        public ActionResult _PartialReset_Password()
+        {
+            return PartialView();
+        }
+        public ActionResult _PartialDeletaAccount()
+        {
+            return PartialView();
+        }
+        public ActionResult _PartialEmtyCart()
+        {
+            return PartialView();
+        }
     }
 }

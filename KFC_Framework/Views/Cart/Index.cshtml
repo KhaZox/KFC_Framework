@@ -3,16 +3,180 @@
     ViewBag.Title = "Cart";
     Layout = "~/Views/Shared/_LayoutCart.cshtml";
 }
-<main>
+<main class="cart">
     <h1 class="mb-3" style="font-family: 'Oswald-SemiBold'; font-size: 32px; line-height: 38px; ">GIỎ HÀNG CỦA TÔI</h1>
-    <div class="emty-cart position-relative d-flex align-items-center justify-content-start flex-wrap" style="padding: 45px 55px; background-color: #F8F7F5">
-        <div class="content-emty-cart position-absolute">
-            <h2 style="font-family: 'Oswald-SemiBold'; font-size: 44px; letter-spacing: 2.5px; line-height: 58px;">GIỎ HÀNG CỦA BẠN ĐANG TRỐNG. HÃY ĐẶT MÓN NGAY!</h2>
-            <button class="btn_dathang">Bắt đầu đặt hàng</button>
+    @*@Html.Action("_PartialEmtyCart", "Parital")*@
+    <div class="row gx-5">
+        <div class="col-8 wrapper-cart-left">
+            @for (var i = 0; i < 2; i++)
+            {
+                <div class="cart-left rounded-4 p-3 mb-3" data-index-cart="@i">
+                    <div class="row">
+                        <div class="col-8 position-relative d-flex">
+                            <img class="user-select-none" style="width: 204px; height: 166px" src="https://static.kfcvietnam.com.vn/images/items/lg/Combo-168-tet.jpg?v=LDJxDg" />
+                            <div class="details ms-2 flex-grow-1">
+                                <p class="fw-bold my-1">Combo Sung Túc</p>
+                                <span class="toggle-detial-item">
+                                    Xem chi tiết
+                                    <ion-icon name="chevron-down-outline"></ion-icon>
+                                </span>
+                                <ul class="item-detail hide ps-2">
+                                    <li>Gà Rán (2 miếng)</li>
+                                    <li>2 x Gà Giòn Cay</li>
+                                    <li>Khoai Tây Múi Cau (Vừa)</li>
+                                    <li>Pepsi Lon</li>
+                                    <li>MK_D.CBO86KTet</li>
+                                </ul>
+                                <div class="list-group list-group-horizontal mt-4 text-decoration-underline fw-bold text-dark">
+                                    <a href="#edit" class="text-dark list-group-item-action">Chỉnh sửa</a>
+                                    <a href="#delete" class="text-dark list-group-item-action">Xóa</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4 control d-flex align-items-center justify-content-evenly">
+                            <div class="incremeter d-flex">
+                                <ion-icon class="icon-incre" data-bs-operation="decrease" name="remove-circle-outline"></ion-icon>
+                                <input class="input-incre" type="text" readonly value="1" />
+                                <ion-icon class="icon-incre" data-bs-operation="increase" name="add-circle-outline"></ion-icon>
+                            </div>
+                            <p class="m-0 ms-2 fw-bold price user-select-none">86,000đ</p>
+                        </div>
+                    </div>
+
+                </div>
+            }
+
+            <div class="cart-left cart-left-upsell rounded-4 p-3 mb-0">
+                <h4 class="mb-4">SẼ NGON HƠN KHI THƯỞNG THỨC CÙNG...</h4>
+                <ul class="upsell-list">
+                    @for (var i = 0; i < 10; i++)
+                    {
+                        <li class="upsell-item">
+                            <img style="width: 180px; height: 162px; border-radius: 10px" src="https://static.kfcvietnam.com.vn/images/items/lg/FF-R.jpg?v=Z461pL" />
+                            <div class="upsell-item-content">
+                                <h6 class="m-0">KHOAI TÂY CHIÊN (VỪA)</h6>
+                                <span>19,000đ</span>
+                            </div>
+                            <span class="upsell-icon"><ion-icon name="add-circle"></ion-icon></span>
+                        </li>
+                    }
+                    <li class="upsell-item">
+                        <img style="width: 180px; height: 162px; border-radius: 10px" src="https://static.kfcvietnam.com.vn/images/items/lg/1-eggtart.jpg?v=Z461pL" />
+                        <div class="upsell-item-content">
+                            <h6 class="m-0">1 BÁNH TRỨNG</h6>
+                            <span>18,000đ</span>
+                        </div>
+                        <span class="upsell-icon"><ion-icon name="add-circle"></ion-icon></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-4 ">
+            <div class="cart-right rounded-4 p-3 ">
+                <h4>n MÓN</h4>
+                <hr class="text-black my-3" />
+                <p class="fw-bold">Bạn có mã giảm giá?</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="Body_form mt-4">
+                        <input class="form_input" id="discount" name="discount" type="text">
+                        <label for="phone" class="form-label">Mã giảm giá</label>
+                        <div class="form-message"></div>
+                    </div>
+                    <button class=" btn btn_dathang btn-discount">Áp dụng</button>
+                </div>
+
+
+                <hr class="text-black my-3" />
+                <div class="d-flex justify-content-between align-items-center">
+                    <p>Tổng đơn hàng</p>
+                    <p>86,000đ</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="fw-bold">Tổng thanh toán</p>
+                    <p class="fw-bold">86,000đ</p>
+                </div>
+                <hr class="text-black my-3" />
+                <button class="btn btn_dathang w-100">Thanh Toán</button>
+            </div>
         </div>
     </div>
 </main>
 @section css{
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Account.css">
     <link rel="stylesheet" type="text/css" href="~/Content/Cart.css">
+}
+@section scripts{
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script>
+
+        $('.toggle-detial-item').click(function () {
+            var $cartLeft = $(this).closest('.cart-left');
+            var $itemDetail = $cartLeft.find('.item-detail');
+            $itemDetail.toggleClass('hide');
+        });
+
+        function updatePrice(operation, inputField, priceElement) {
+            var currentValue = parseInt(inputField.val());
+
+            if (operation === "increase") {
+                currentValue++;
+            } else if (operation === "decrease" && currentValue > 1) {
+                currentValue--;
+            }
+
+            inputField.val(currentValue);
+
+            var price = 86000 * currentValue;
+            priceElement.text(price.toLocaleString() + "đ");
+        }
+
+        $(".icon-incre").on("click", function () {
+            var operation = $(this).data("bs-operation");
+            var inputField = $(this).siblings(".input-incre");
+            var priceElement = $(this).closest(".control").find(".price");
+
+            updatePrice(operation, inputField, priceElement);
+        });
+
+        $('.upsell-icon').click(function (e) {
+            var item = `
+                <div class="cart-left rounded-4 p-3 mb-3" data-index-cart="">
+                    <div class="row">
+                        <div class="col-8 position-relative d-flex">
+                            <img class="user-select-none" style="width: 204px; height: 166px" src="https://static.kfcvietnam.com.vn/images/items/lg/FF-R.jpg?v=Z461pL" />
+                            <div class="details ms-2 flex-grow-1">
+                                <p class="fw-bold my-1">KHOAI TÂY CHIÊN (VỪA)</p>
+                                <div class="list-group list-group-horizontal mt-4 text-decoration-underline fw-bold text-dark">
+                                    <a href="#edit" class="text-dark list-group-item-action">Chỉnh sửa</a>
+                                    <a href="#delete" class="text-dark list-group-item-action">Xóa</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4 control d-flex align-items-center justify-content-end">
+                            <div class="incremeter d-flex">
+                                <ion-icon class="icon-incre" data-bs-operation="decrease" name="remove-circle-outline"></ion-icon>
+                                <input class="input-incre" type="text" readonly value="1" />
+                                <ion-icon class="icon-incre" data-bs-operation="increase" name="add-circle-outline"></ion-icon>
+                            </div>
+                            <p class="m-0 ms-2 fw-bold price user-select-none">18,000đ</p>
+                        </div>
+                    </div>
+
+                </div>
+                `
+            $('.wrapper-cart-left').prepend(item)
+
+        })
+        const inputDiscount = $('#discount');
+        inputDiscount.on('input', function () {
+            if ($(this).val().trim() !== '') {
+                $(this).addClass('has-value');
+            } else {
+                $(this).removeClass('has-value');
+            }
+        }); 
+    </script>
 }

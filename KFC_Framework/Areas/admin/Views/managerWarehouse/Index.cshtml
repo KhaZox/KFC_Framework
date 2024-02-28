@@ -1,0 +1,153 @@
+﻿
+@{
+    ViewBag.Title = "managerWarehouse";
+    Layout = "~/Areas/admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<style>
+    .control-padding {
+        padding: 2px 6px;
+    }
+
+    .dataTables_scrollBody::-webkit-scrollbar {
+        width: 0px;
+        background-color: #F5F5F5;
+    }
+
+    #warehouseTable_filter label {
+        font-weight: bold;
+    }
+
+    #warehouseTable_filter input {
+        border: 1px solid #ccc;
+        border-radius: 10px
+    }
+</style>
+
+
+<table id="warehouseTable" class=" table-sm table table-striped table-light table-hover custom-thead-color">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col" class="">
+                Tên nguyên vật liệu
+            </th>
+            <th scope="col">
+                Mã nguyên vật liệu
+            </th>
+            <th scope="col">
+                Số lượng
+            </th>
+            <th scope="col">Đơn vị</th>
+            <th scope="col">Ngày</th>
+            <th scope="col">Tình Trạng</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider align-middle">
+        @for (var i = 1; i <= 10; i++)
+        {
+            <tr>
+                <td>
+                    Gà
+                </td>
+                <td>1</td>
+                <td>350</td>
+                <td>Cái</td>
+                <td>12/12/2022</td>
+                <td class="text-success">Còn hàng</td>
+            </tr>
+        }
+        @for (var i = 1; i <= 10; i++)
+        {
+            <tr>
+                <td>
+                    Burger
+                </td>
+                <td>2</td>
+                <td>100</td>
+                <td>Cái</td>
+                <td>21/12/2022</td>
+                <td class="text-success">Còn hàng</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<!-- Modal AddMaterial -->
+<div class="modal modal-addMaterial fade" id="addUserModal" tabindex="-1" aria-labelledby="addMaterialModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header bg-secondary">
+                <h1 class="modal-title fs-5 fw-bold text-light" id="addMaterialModalLabel">Thêm Nguyên Vật Liệu</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="idMaterial" class="col-form-label">Mã NVL</label>
+                        <input type="text" class="form-control" id="idMaterial">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nameMaterial" class="col-form-label">Tên NVL</label>
+                        <input class="form-control" id="nameMaterial" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantityMaterial" class="col-form-label">Số lượng</label>
+                        <input class="form-control" id="quantityMaterial" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="unitMaterial" class="col-form-label">Đơn vị</label>
+                        <input class="form-control" id="unitMaterial" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer text-center d-inline">
+                <button type="button" class="btn btn-danger w-25 fw-bold" data-bs-dismiss="modal">SAVE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section css{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+}
+@section scripts{
+    <script>
+        $(document).ready(() => {
+            $('#warehouseTable').DataTable({
+                "scrollY": "400px",
+                "scrollCollapse": true,
+                "paging": true,
+                select: true,
+                processing: true,
+                lengthMenu: [10, 25, 50, 100],
+                responsive: true,
+            })
+        })
+        $(document).ready(function () {
+            var buttonAddMaterial = $('<button>', {
+                id: 'buttonAddMaterial',
+                class: 'btn btn-primary text-light fw-bold me-3 ',
+                text: 'Thêm nguyên vật liệu',
+                click: function () {
+                    $('.modal-addMaterial').modal('show');
+                },
+            });
+            var buttonDownload = $('<button>', {
+                id: 'btnDownload',
+                class: 'btn btn-outline-secondary fw-bold me-3 ',
+                text: 'Download All',
+                click: function () {
+                    alert('Download')
+                },
+            });
+
+            $('#warehouseTable_filter').prepend(buttonAddMaterial, buttonDownload);
+        });
+    </script>
+}
+
+
+
+

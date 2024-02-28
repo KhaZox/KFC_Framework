@@ -121,7 +121,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
+    <Compile Include="Areas\admin\Controllers\managerAccountController.cs" />
+    <Compile Include="Areas\admin\Controllers\managerOrderController.cs" />
     <Compile Include="Areas\admin\Controllers\managerProductController.cs" />
+    <Compile Include="Areas\admin\Controllers\managerReportController.cs" />
+    <Compile Include="Areas\admin\Controllers\managerWarehouseController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -132,10 +136,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Account.css" />
+    <Content Include="Content\Admin.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -160,6 +166,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Account.js" />
+    <Content Include="Scripts\Admin.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -169,6 +176,12 @@
     <Content Include="Areas\admin\Views\web.config" />
     <Content Include="Areas\admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\admin\Views\managerProduct\inforProduct.cshtml" />
+    <Content Include="Areas\admin\Views\managerProduct\addProduct.cshtml" />
+    <Content Include="Areas\admin\Views\managerOrder\Index.cshtml" />
+    <Content Include="Areas\admin\Views\managerWarehouse\Index.cshtml" />
+    <Content Include="Areas\admin\Views\managerAccount\Index.cshtml" />
+    <Content Include="Areas\admin\Views\managerReport\salesReport.cshtml" />
+    <Content Include="Areas\admin\Views\managerReport\ordersReport.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Home.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -217,7 +230,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\admin\Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

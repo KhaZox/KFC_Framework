@@ -1,0 +1,272 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .control-padding {
+        padding: 2px 6px;
+    }
+
+    .bg-admin {
+        background-color: #DE6767
+    }
+
+    .bg-staff {
+        background-color: #025E86
+    }
+
+    .bg-customer {
+        background-color: #1F2124
+    }
+
+    .dataTables_scrollBody::-webkit-scrollbar {
+        width: 0px;
+        background-color: #F5F5F5;
+    }
+
+    #accountTable_filter label {
+        font-weight: bold;
+    }
+
+    #accountTable_filter input {
+        border: 1px solid #ccc;
+        border-radius: 10px
+    }
+
+    #accountTable thead tr th::after:nth-child(2),
+    #accountTable thead tr th:nth-child(2)::before {
+        display: none
+    }
+</style>
+
+<table id="accountTable" class="table-sm table table-striped table-light table-hover custom-thead-color">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">
+                Mã tài khoản
+            </th>
+            <th scope="col">
+                Mã người dùng
+            </th>
+            <th scope="col">
+                Quyền
+            </th>
+            <th scope="col">
+                Ngày tạo
+            </th>
+            <th scope="col">&#160;</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider align-middle">
+        @for (var i = 1; i <= 10; i++)
+        {
+            <tr>
+                <td>13123122</td>
+                <td>AD001</td>
+                <td><span class="status bg-admin fw-medium text-light rounded-4 py-1 px-3">Admin</span></td>
+                <td>1/1/2023</td>
+                <td class="text-center">
+                    <button type="button" class="btn control-padding" data-bs-toggle="modal" data-bs-target="#eidtModal" data-bs-whatever="xxxxx">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger rounded-circle rounded-5 control-padding" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+        @for (var i = 1; i <= 10; i++)
+        {
+            <tr>
+                <td>131231232</td>
+                <td>NV001</td>
+                <td><span class="status bg-staff fw-medium text-light rounded-4 py-1 px-3">Nhân viên</span></td>
+                <td>1/1/2023</td>
+                <td class="text-center">
+                    <button type="button" class="btn control-padding" data-bs-toggle="modal" data-bs-target="#eidtModal" data-bs-whatever="xxxxx">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger rounded-circle rounded-5 control-padding" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+        @for (var i = 1; i <= 10; i++)
+        {
+            <tr>
+                <td>1313484332</td>
+                <td>KH001</td>
+                <td><span class="status bg-customer fw-medium text-light rounded-4 py-1 px-3">Khách hàng</span></td>
+                <td>1/1/2024</td>
+                <td class="text-center">
+                    <button type="button" class="btn control-padding" data-bs-toggle="modal" data-bs-target="#eidtModal" data-bs-whatever="xxxxx">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger rounded-circle rounded-5 control-padding" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal Edit -->
+<div class="modal fade" id="eidtModal" tabindex="-1" aria-labelledby="eidtModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="eidtModalLabel">Manager Account</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Mã tài khoản</label>
+                        <input type="text" class="form-control" value="yyyy" id="recipient-name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Mã người dùng</label>
+                        <input class="form-control" value="xxxx" id="message-text" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="permissionSelect" class="col-form-label">Quyền</label>
+                        <select id="permissionSelect" class="form-select" aria-label="Default select example">
+                            <option value="1">Admin</option>
+                            <option value="2">Nhân viên</option>
+                            <option value="3">Khách hàng</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteModalLabel">Xóa tài khoản </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có muốn xóa tài khoản này</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal AddUser -->
+<div class="modal modal-addUser fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header bg-secondary">
+                <h1 class="modal-title fs-5 fw-bold text-light" id="addUserModalLabel">Thêm Người Dùng</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="account" class="col-form-label">Tài Khoản</label>
+                        <input type="text" class="form-control" id="account">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="col-form-label">Mật Khẩu</label>
+                        <input class="form-control" id="password" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="permissionSelect" class="col-form-label">Quyền</label>
+                        <select id="permissionSelect" class="form-select" aria-label="Default select example">
+                            <option value="1">Admin</option>
+                            <option value="2">Nhân viên</option>
+                            <option value="3">Khách hàng</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer text-center d-inline">
+                <button type="button" class="btn btn-danger w-25 fw-bold" data-bs-dismiss="modal">SAVE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section css{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+}
+@section scripts{
+
+    <script>
+
+        $(document).ready(() => {
+            $('#accountTable').DataTable({
+                columnDefs: [{ orderable: false, targets: 4 }],
+                "scrollY": "400px",
+                "scrollCollapse": true,
+                "paging": true,
+                select: true,
+                processing: true,
+                lengthMenu: [10, 25, 50, 100],
+                responsive: true,
+
+
+            })
+        })
+        $(document).ready(function () {
+            $('#permissionSelect').change(function () {
+                const selectedPermission = $(this).val();
+
+                // Remove previous color classes
+                $('#accountTable .status').removeClass('bg-admin bg-staff bg-customer');
+
+                // Add new color class based on selected status
+                switch (selectedPermission) {
+                    case '1':
+                        $('#accountTable .status').addClass('bg-admin').text('Admin');
+                        break;
+                    case '2':
+                        $('#accountTable .status').addClass('bg-staff').text("Nhân viên");
+                        break;
+                    case '3':
+                        $('#accountTable .status').addClass('bg-customer').text("Khách hàng");
+                        break;
+                    default:
+                        break;
+                }
+            });
+        });
+        $(document).ready(function () {
+            var button = $('<button>', {
+                id: 'btnAddUser',
+                class: 'btn btn-warning text-light-emphasis fw-bold me-2 ',
+                text: '+ Thêm người dùng',
+                click: function () {
+                    $('.modal-addUser').modal('show');
+                },
+            });
+
+            $('#accountTable_filter').prepend(button);
+        });
+    </script>
+
+
+}
+
+

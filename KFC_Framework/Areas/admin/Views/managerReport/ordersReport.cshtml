@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "ordersReport";
+    Layout = "~/Areas/admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="d-flex">
+    <select class="form-select w-25 rounded-pill me-4" aria-label="Default select example">
+        <option selected >Chọn thời gian bắt đầu</option>
+        <option value="1">Tháng 1</option>
+        <option value="2">Tháng 2</option>
+        <option value="3">Tháng 3</option>
+        <option value="4">Tháng 4</option>
+    </select>
+    <select class="form-select w-25 rounded-pill" aria-label="Default select example">
+        <option selected>Chọn thời gian kết thúc</option>
+        <option value="1">Tháng 1</option>
+        <option value="2">Tháng 2</option>
+        <option value="3">Tháng 3</option>
+        <option value="4">Tháng 4</option>
+    </select>
+</div>
+<p class="fw-bold fs-5 mt-2">Báo cáo thống kê đơn đặt hàng</p>
+

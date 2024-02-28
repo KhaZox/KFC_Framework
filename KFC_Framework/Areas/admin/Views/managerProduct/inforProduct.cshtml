@@ -3,6 +3,185 @@
     ViewBag.Title = "inforProduct";
     Layout = "~/Areas/admin/Views/Shared/_LayoutAdmin.cshtml";
 }
+<style>
+    .control-padding {
+        padding: 2px 6px;
+    }
 
-<h2>inforProduct</h2>
+    .dataTables_scrollBody::-webkit-scrollbar {
+        width: 0px;
+        background-color: #F5F5F5;
+    }
 
+    #productTable_filter label {
+        font-weight: bold;
+    }
+
+    #productTable_filter input {
+        border: 1px solid #ccc;
+        border-radius: 10px
+    }
+</style>
+@*<div class="d-flex justify-content-between">
+        <div class="input-group w-25 mb-3">
+            <label class="input-group-text" for="inputGroupSelectColumn">Rows per page</label>
+            <select class="form-select" id="inputGroupSelectColumn" style="max-width: 70px">
+                <option value="1">5</option>
+                <option value="2">10</option>
+            </select>
+        </div>
+        <div class="input-group mb-3 w-25 ">
+            <input id="inputSearch" type="text" class="form-control" placeholder="Enter Name Product" aria-label="Recipient's username" aria-describedby="button-search">
+            <button class="btn btn-outline-dark btn-dark text-light" type="button" id="button-search">Search</button>
+        </div>
+    </div>*@
+
+<table id="productTable" class="table-sm table table-striped table-light table-hover custom-thead-color">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">
+                ID#
+            </th>
+            <th scope="col">
+                ProductName
+            </th>
+            <th scope="col">
+                Price
+            </th>
+            <th scope="col">&#160;</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider align-middle">
+        @for (var i = 1; i <= 100; i++)
+        {
+            <tr>
+                <th scope="row">@i</th>
+                <td>Gà xốt cua</td>
+                <td>41.000</td>
+                <td class="text-center">
+                    <button type="button" class="btn control-padding" data-bs-toggle="modal" data-bs-target="#inforModal" data-bs-whatever="xxxxx">
+                        <i class="bi bi-info-circle"></i>
+                    </button>
+                    <button type="button" class="btn control-padding" data-bs-toggle="modal" data-bs-target="#eidtModal" data-bs-whatever="xxxxx">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger rounded-circle rounded-5 control-padding" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal Infor -->
+<div class="modal fade" id="inforModal" tabindex="-1" aria-labelledby="inforModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="inforModalLabel">Information of Product</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">ProductName</label>
+                        <input type="text" class="form-control" value="yyyy" id="recipient-name" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Price</label>
+                        <input class="form-control" value="xxxx" id="message-text" disabled />
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">CreateDate</label>
+                        <input class="form-control" value="20/03/1999" id="message-text" disabled />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Edit -->
+<div class="modal fade" id="eidtModal" tabindex="-1" aria-labelledby="eidtModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="eidtModalLabel">Information of Product</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">ProductName</label>
+                        <input type="text" class="form-control" value="yyyy" id="recipient-name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Price</label>
+                        <input class="form-control" value="xxxx" id="message-text" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteModalLabel">Xóa sản phẩm</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có muốn xóa sản phẩm này</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section css{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+}
+@section scripts{
+    <script>
+        const search = () => {
+            var value = $("#inputSearch").val().toLowerCase();
+            $(".table tbody tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        }
+        $("#inputSearch").on("keyup", search);
+        $("#button-search").click(search);
+
+        $(document).ready(() => {
+            $('#productTable').DataTable({
+                columnDefs: [{ orderable: false, targets: 3 }],
+                "scrollY": "400px",
+                "scrollCollapse": true,
+                "paging": true,
+                select: true,
+                processing: true,
+                lengthMenu: [10, 25, 50, 100],
+                responsive: true,
+            })
+        })
+    </script>
+
+}
